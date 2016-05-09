@@ -4,7 +4,8 @@
   "description": "one Koa project",
   "main": "\t",
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.js",
+    "preinstall": "cd theme && npm install"
   },
   "repository": {
     "type": "git",

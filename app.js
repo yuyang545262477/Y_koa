@@ -40,7 +40,7 @@ app.use(scheme(config.schemeConf));
 app.use(routerCache(app, config.routerCacheConf));
 app.use(gzip());
 app.use(render(app, renderConf));
-app.use(router(app, config.routerCacheConf));
+app.use(router(app, config.routerConf));
 
 app.listen(config.port, function () {
     console.log('Server listening on :  ', config.port);
