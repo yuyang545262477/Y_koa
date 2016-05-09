@@ -1,0 +1,22 @@
+<% include header.ejs %>
+
+<div class="container">
+    <div class="ui two column centered grid">
+        <div class="right floated left aligned four wide column">
+            <% if ($this.session.user) { %>
+            <% var name = $this.session.user.name; %>
+            <% include partials/userCard.ejs %>
+            <% include partials/createCard.ejs %>
+            <% } %>
+            <% include partials/noReplyCard.ejs %>
+            <% include partials/linkCard.ejs %>
+        </div>
+        <div class="left floated  twelve wide column">
+            <% include partials/tab.ejs %>
+            <% include partials/list.ejs %>
+            <% include partials/pagination.ejs %>
+        </div>
+    </div>
+</div>
+
+<% include footer.ejs %>
