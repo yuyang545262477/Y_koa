@@ -35,6 +35,12 @@ module.exports = {
         "request": {
             "body": CheckCreateBody
         }
+    },
+    "POST/topic/:id": {
+        "request": {
+            "session": CheckLogin,
+            "body": CheckReplyTopic
+        }
     }
     
 };
@@ -151,3 +157,25 @@ function CheckCreateBody() {
     body.content = validator.trim(body.content);
     return true;
 }
+
+/**
+ * @return {boolean}
+ */
+function CheckReplyTopic() {
+    var body = this.request.body;
+    var flash;
+    if (!body || !body.topic_id || validator.isMongoId(body.topic_id)) {
+        flash = {error: '回复的帖子不存在'};
+    }
+    else if (!body.content) {
+        flash = {error: '回复的内容为空'};
+    }
+    if (flash) {
+        this.flash = flash;
+        this.redirect('back');
+        return false;
+    }
+    body.content = validator.trim(body.content);
+    return true;
+}
+
