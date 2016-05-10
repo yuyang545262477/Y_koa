@@ -42,6 +42,12 @@ app.use(gzip());
 app.use(render(app, renderConf));
 app.use(router(app, config.routerConf));
 
-app.listen(config.port, function () {
-    console.log('Server listening on :  ', config.port);
-});
+
+if (module.parent) {
+    module.exports = app.callback();
+} else {
+    
+    app.listen(config.port, function () {
+        console.log('Server listening on :  ', config.port);
+    });
+}

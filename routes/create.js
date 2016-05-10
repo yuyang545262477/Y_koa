@@ -1,7 +1,7 @@
 var Models = require('../lib/core');
 var $Topic = Models.$Topic;
 
-exports.get = function *() {
+exports.get = function*() {
     yield this.render('create');
 };
 
