@@ -3,7 +3,7 @@ module.exports = {
     layout: false,
     viewExt: 'ejs',
     cache: true,
-    debug: false,
+    debug: true,
     filters: require('./helplers/filters'),
     locals: require('./helplers/locals')
 };
